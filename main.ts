@@ -44,10 +44,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . 2 2 . . . . . . . 
-            . . . . . . 3 1 1 3 . . . . . . 
-            . . . . . 2 1 1 1 1 2 . . . . . 
-            . . . . . 2 1 1 1 1 2 . . . . . 
-            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . . 4 5 5 4 . . . . . . 
+            . . . . . 2 5 5 5 5 2 . . . . . 
+            . . . . . 2 5 5 5 5 2 . . . . . 
+            . . . . . . 4 5 5 4 . . . . . . 
             . . . . . . . 2 2 . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -63,10 +63,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . 2 2 . . . . . . . 
-            . . . . . . 3 1 1 3 . . . . . . 
-            . . . . . 2 1 1 1 1 2 . . . . . 
-            . . . . . 2 1 1 1 1 2 . . . . . 
-            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . . 4 5 5 4 . . . . . . 
+            . . . . . 2 5 5 5 5 2 . . . . . 
+            . . . . . 2 5 5 5 5 2 . . . . . 
+            . . . . . . 4 5 5 4 . . . . . . 
             . . . . . . . 2 2 . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -82,10 +82,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . 2 2 . . . . . . . 
-            . . . . . . 3 1 1 3 . . . . . . 
-            . . . . . 2 1 1 1 1 2 . . . . . 
-            . . . . . 2 1 1 1 1 2 . . . . . 
-            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . . 4 5 5 4 . . . . . . 
+            . . . . . 2 5 5 5 5 2 . . . . . 
+            . . . . . 2 5 5 5 5 2 . . . . . 
+            . . . . . . 4 5 5 4 . . . . . . 
             . . . . . . . 2 2 . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -101,10 +101,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . 2 2 . . . . . . . 
-            . . . . . . 3 1 1 3 . . . . . . 
-            . . . . . 2 1 1 1 1 2 . . . . . 
-            . . . . . 2 1 1 1 1 2 . . . . . 
-            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . . 4 5 5 4 . . . . . . 
+            . . . . . 2 5 5 5 5 2 . . . . . 
+            . . . . . 2 5 5 5 5 2 . . . . . 
+            . . . . . . 4 5 5 4 . . . . . . 
             . . . . . . . 2 2 . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -197,7 +197,7 @@ function buildRoom (numChests: number) {
             b b b b b b b b b b b b b b b b 
             . b b . . . . . . . . . . b b . 
             `)))) {
-            tiles.setTileAt(tiles.getTileLocation(c, r), sprites.dungeon.floorLight0)
+            tiles.setTileAt(tiles.getTileLocation(c, r), sprites.dungeon.floorDark2)
             tiles.setWallAt(tiles.getTileLocation(c, r), true)
             rand = randint(0, 3)
             if (rand == 0 && !(Direction == "down")) {
@@ -217,7 +217,7 @@ function buildRoom (numChests: number) {
     }
 }
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite, effects.disintegrate, 1000)
+    sprites.destroy(otherSprite, effects.fire, 500)
     info.changeScoreBy(1)
 })
 let EnemySprite: Sprite = null
@@ -269,19 +269,19 @@ img`
     `,
 img`
     . . . . . . . . . . . . . . 
-    e e e . . . . e e e . . . . 
-    c d d c . . c d d c . . . . 
-    c b d d f f d d b c . . . . 
-    c 3 b d d b d b 3 c . . . . 
-    f b 3 d d d d 3 b f . . . . 
-    e d d d d d d d d e . . . . 
-    e d f d d d d f d e . b f b 
-    f d d f d d f d d f . f d f 
-    f b d d b b d d 2 b f f d f 
-    . f 2 2 2 2 2 2 d b b d b f 
-    . f d d d d d d d f f f f . 
-    . . f d b d f d f . . . . . 
-    . . . f f f f f f . . . . . 
+    . . . . . . . . . . . . . . 
+    . f f . . . . f f . . . . . 
+    f b f f . . f f b f . . . . 
+    f 3 b f f f f b 3 f . . . . 
+    f b 3 f f f f 3 b f . . . . 
+    f f f f f f f f f f . . . . 
+    f f 5 f f f f 5 f f . . . . 
+    f f f 5 f f 5 f f f . f . . 
+    . f f f 3 3 f f 2 . . f . . 
+    . . 2 2 2 2 2 2 f f f f . . 
+    . . f f f f f f f . . . . . 
+    . . . f . f . f . . . . . . 
+    . . . . . . . . . . . . . . 
     `,
 img`
     ........................
@@ -310,22 +310,22 @@ img`
     ........................
     `,
 img`
-    . . . . c c c c c c . . . . . . 
-    . . . c 6 7 7 7 7 6 c . . . . . 
-    . . c 7 7 7 7 7 7 7 7 c . . . . 
-    . c 6 7 7 7 7 7 7 7 7 6 c . . . 
-    . c 7 c 6 6 6 6 c 7 7 7 c . . . 
-    . f 7 6 f 6 6 f 6 7 7 7 f . . . 
-    . f 7 7 7 7 7 7 7 7 7 7 f . . . 
-    . . f 7 7 7 7 6 c 7 7 6 f c . . 
-    . . . f c c c c 7 7 6 f 7 7 c . 
-    . . c 7 2 7 7 7 6 c f 7 7 7 7 c 
-    . c 7 7 2 7 7 c f c 6 7 7 6 c c 
-    c 1 1 1 1 7 6 f c c 6 6 6 c . . 
-    f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
-    f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
-    . f 6 1 1 1 1 1 1 6 6 6 f . . . 
-    . . c c c c c c c c c f . . . . 
+    . . . . f f f f f f . . . . . . 
+    . . . f 4 2 2 2 2 4 f . . . . . 
+    . . f 2 2 2 2 2 2 2 2 f . . . . 
+    . f 4 2 2 2 2 2 2 2 2 4 f . . . 
+    . f 2 f 4 4 4 4 f 2 2 2 f . . . 
+    . f 2 4 f 4 4 f 4 2 2 2 f . . . 
+    . f 2 2 2 2 2 2 2 2 2 2 f . . . 
+    . . f 2 2 2 2 4 f 2 2 4 f f . . 
+    . . . f f f f f 2 2 4 f 2 2 f . 
+    . . f 2 2 2 2 2 4 f f 2 2 2 2 f 
+    . f 2 2 2 2 2 f f f 4 2 2 4 f f 
+    f 5 5 5 5 2 4 f f f 4 4 4 f . . 
+    f 5 5 5 5 5 4 4 f 4 4 4 4 f . . 
+    f 4 5 5 5 5 5 4 4 4 4 4 f f . . 
+    . f 4 5 5 5 5 5 5 4 4 4 f . . . 
+    . . f f f f f f f f f f . . . . 
     `
 ]
 let mapLists = [tilemap`level1`, tilemap`level6`, tilemap`level5`]
@@ -336,7 +336,7 @@ scene.cameraFollowSprite(playerSprite)
 tiles.setCurrentTilemap(mapLists._pickRandom())
 info.setScore(0)
 info.setLife(3)
-tiles.placeOnTile(playerSprite, tiles.getTileLocation(randint(1, 15), randint(1, 15)))
+tiles.placeOnTile(playerSprite, tiles.getTileLocation(randint(2, 14), randint(2, 14)))
 buildRoom(3)
 game.onUpdateInterval(1000, function () {
     if (sprites.allOfKind(SpriteKind.Enemy).length < 10) {
