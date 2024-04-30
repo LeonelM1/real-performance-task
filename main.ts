@@ -15,22 +15,22 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (playerSprite.overlapsWith(chest)) {
         chest.setImage(img`
-            . b b b b b b b b b b b b b b . 
-            b e 4 4 4 4 4 4 4 4 4 4 4 4 4 b 
-            b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
-            b e e 4 4 4 4 4 4 4 4 4 4 e e b 
-            b b b b b b b d d b b b b b b b 
-            . b b b b b b c c b b b b b b . 
-            b c c c c c b c c b c c c c c b 
-            b c c c c c c b b c c c c c c b 
-            b c c c c c c c c c c c c c c b 
-            b c c c c c c c c c c c c c c b 
-            b b b b b b b b b b b b b b b b 
-            b e e e e e e e e e e e e e e b 
-            b e e e e e e e e e e e e e e b 
-            b c e e e e e e e e e e e e c b 
-            b b b b b b b b b b b b b b b b 
-            . b b . . . . . . . . . . b b . 
+            . 5 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+            5 2 2 2 2 2 f 6 6 f 2 2 2 2 2 5 
+            5 2 2 2 2 2 2 f f 2 2 2 2 2 2 5 
+            5 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 
+            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+            . 5 5 5 5 5 5 f f 5 5 5 5 5 5 . 
+            5 f f f f f 5 f f 5 f f f f f 5 
+            5 f f f f f f 5 5 f f f f f f 5 
+            5 f f f f f f f f f f f f f f 5 
+            5 f f f f f f f f f f f f f f 5 
+            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+            5 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 
+            5 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 
+            5 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 
+            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+            . 5 5 . . . . . . . . . . 5 5 . 
             `)
         info.changeScoreBy(20)
     }
@@ -180,22 +180,22 @@ function buildRoom (numChests: number) {
             Direction = "left"
         }
         while (!(tiles.tileAtLocationIsWall(tiles.getTileLocation(c, r)) && !(tiles.tileAtLocationEquals(tiles.getTileLocation(c, r), img`
-            . . b b b b b b b b b b b b . . 
-            . b e 4 4 4 4 4 4 4 4 4 4 e b . 
-            b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
-            b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
-            b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
-            b e e 4 4 4 4 4 4 4 4 4 4 e e b 
-            b e e e e e e e e e e e e e e b 
-            b e e e e e e e e e e e e e e b 
-            b b b b b b b d d b b b b b b b 
-            c b b b b b b c c b b b b b b c 
-            c c c c c c b c c b c c c c c c 
-            b e e e e e c b b c e e e e e b 
-            b e e e e e e e e e e e e e e b 
-            b c e e e e e e e e e e e e c b 
-            b b b b b b b b b b b b b b b b 
-            . b b . . . . . . . . . . b b . 
+            . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+            . 5 2 2 2 2 2 f f 2 2 2 2 2 5 . 
+            5 2 2 2 2 f f 6 6 f f 2 2 2 2 5 
+            5 2 2 2 f f 6 6 6 6 f f 2 2 2 5 
+            5 2 2 2 2 f 6 6 6 6 f 2 2 2 2 5 
+            5 2 2 2 2 2 f 6 6 f 2 2 2 2 2 5 
+            5 2 2 2 2 2 2 f f 2 2 2 2 2 2 5 
+            5 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 
+            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+            c 5 5 5 5 5 5 f f 5 5 5 5 5 5 c 
+            c c c c c c 5 f f 5 c c c c c c 
+            5 2 2 2 2 2 c 5 5 c 2 2 2 2 2 5 
+            5 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 
+            5 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 
+            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+            . 5 5 . . . . . . . . . . 5 5 . 
             `)))) {
             tiles.setTileAt(tiles.getTileLocation(c, r), sprites.dungeon.floorDark2)
             tiles.setWallAt(tiles.getTileLocation(c, r), true)
@@ -230,42 +230,42 @@ let shootingDirection = 0
 let playerSprite: Sprite = null
 let chest: Sprite = null
 chest = sprites.create(img`
-    . . b b b b b b b b b b b b . . 
-    . b e 4 4 4 4 4 4 4 4 4 4 e b . 
-    b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
-    b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
-    b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
-    b e e 4 4 4 4 4 4 4 4 4 4 e e b 
-    b e e e e e e e e e e e e e e b 
-    b e e e e e e e e e e e e e e b 
-    b b b b b b b d d b b b b b b b 
-    c b b b b b b c c b b b b b b c 
-    c c c c c c b c c b c c c c c c 
-    b e e e e e c b b c e e e e e b 
-    b e e e e e e e e e e e e e e b 
-    b c e e e e e e e e e e e e c b 
-    b b b b b b b b b b b b b b b b 
-    . b b . . . . . . . . . . b b . 
+    . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+    . 5 2 2 2 2 2 f f 2 2 2 2 2 5 . 
+    5 2 2 2 2 f f 6 6 f f 2 2 2 2 5 
+    5 2 2 2 f f 6 6 6 6 f f 2 2 2 5 
+    5 2 2 2 2 f 6 6 6 6 f 2 2 2 2 5 
+    5 2 2 2 2 2 f 6 6 f 2 2 2 2 2 5 
+    5 2 2 2 2 2 2 f f 2 2 2 2 2 2 5 
+    5 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 
+    5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+    c 5 5 5 5 5 5 f f 5 5 5 5 5 5 c 
+    c c c c c c 5 f f 5 c c c c c c 
+    5 2 2 2 2 2 c 5 5 c 2 2 2 2 2 5 
+    5 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 
+    5 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 
+    5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+    . 5 5 . . . . . . . . . . 5 5 . 
     `, SpriteKind.chest)
 playerSprite = sprites.create(assets.image`down`, SpriteKind.Player)
 let EnemyImages = [
 img`
-    . . . f f f f f f f f f f . . . 
+    . . . . f f f f f f f f . . . . 
+    . . . f b b b b a a a a f . . . 
     . . f b b b b b a a a a a f . . 
-    . f b b b b b b a a a a a a f . 
-    f a b f f f f f f f f f f a a f 
-    f a f f 5 f f f f f f 5 f f a f 
-    f a f f f f f f f f f f f f a f 
-    f c c f f f f f f f f f f c c f 
+    . f a a f f f f f f f f a a f . 
+    f a a f f 5 f f f f 5 f f a a f 
+    f a a f f f f f f f f f f a a f 
+    f c c a f f f f f f f f a c c f 
     f a c c c c c c c c c c c a a f 
-    f a a a a a a a a a a a a a a f 
+    . f a a a a a a a a a a a a f . 
     . f a b b b b b b b b b b a f . 
-    . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+    f 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
     f a a b b 5 b b c b 5 b b a a f 
     f a a b b b b b c b 5 b b a a f 
-    f a a b b b b b c b b b b a a f 
     . f f f f f f f f f f f f f f . 
     . . e e . . . . . . . . e e . . 
+    . . . . . . . . . . . . . . . . 
     `,
 img`
     . . . . . . . . . . . . . . 
@@ -289,20 +289,20 @@ img`
     ........................
     ........................
     ..........ffff..........
-    ........ff1111ff........
-    .......fb111111bf.......
-    .......f11111111f.......
-    ......fd11111111df......
-    ......fdd111111ddf......
-    ......fbdd1111dddf......
-    ......fcdbfddfbdbf......
-    .......fbcf11fcbfff.....
-    .......ffb1111bcfbcf....
-    ........fcdb1bdfbbbf....
+    ........ff8888ff........
+    .......fa888888af.......
+    .......f88888888f.......
+    ......f6888888886f......
+    ......f6688888866f......
+    ......fa668888666f......
+    ......fc6af66fa6af......
+    .......facf88fcafff.....
+    .......ffa8888acfacf....
+    ........fc6a8a6faaaf....
     .......ffffffffffcf.....
-    .....fcb1bcfffff........
-    .....f1b1b1ffff.........
-    ......ffbff.............
+    .....fca8acfffff........
+    .....f8a8a8ffff.........
+    ......ffaff.............
     ........................
     ........................
     ........................
